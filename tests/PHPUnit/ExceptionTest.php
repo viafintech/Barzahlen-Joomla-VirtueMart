@@ -1,6 +1,6 @@
 <?php
 /**
- * Barzahlen Payment Module (ViruteMart2)
+ * Barzahlen Payment Module SDK
  *
  * NOTICE OF LICENSE
  *
@@ -21,7 +21,15 @@
  * @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
  */
 
-defined('_JEXEC') or die('Restricted access');
-?>
+class ExceptionTest extends PHPUnit_Framework_TestCase {
 
-<?php echo $viewData["Infotext1"]; ?>
+  /**
+   * Testing the correct output.
+   */
+  public function testToString() {
+
+    $exception = new Barzahlen_Exception('An error occurred.', 42);
+    $this->assertEquals("Barzahlen_Exception: [42] - An error occurred.\n", $exception->__toString());
+  }
+}
+?>

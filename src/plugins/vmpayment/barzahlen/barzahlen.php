@@ -168,12 +168,7 @@ class plgVmpaymentBarzahlen extends vmPSPlugin {
       $order['comments'] = JText::sprintf ('VMPAYMENT_BARZAHLEN_COMMENT_PENDING_STATUS');
       $modelOrder->updateStatusForOneOrder ($order['details']['BT']->virtuemart_order_id, $order, TRUE);
 
-      $html = $this->renderByLayout ('orderdone', array(
-                    'SuccessTitle' => JText::_('VMPAYMENT_BARZAHLEN_SUCCESS_TITLE'),
-                    'PaymentSlipLink'  => $payment->getPaymentSlipLink(),
-                    'Infotext1'        => $payment->getInfotext1(),
-                    'Infotext2'        => $payment->getInfotext2(),
-                    'ExpirationNotice' => $payment->getExpirationNotice()));
+      $html = $this->renderByLayout ('orderdone', array('Infotext1' => $payment->getInfotext1()));
       JRequest::setVar ('html', $html);
 
       $cart->emptyCart();
@@ -739,7 +734,7 @@ class plgVmpaymentBarzahlen extends vmPSPlugin {
 
       for($i = 1; $i <= 10; $i++) {
         $count = str_pad($i,2,"0",STR_PAD_LEFT);
-        $paymentDesc .= '<img src="http://cdn.barzahlen.de/images/barzahlen_partner_'.$count.'.png" alt="" />';
+        $paymentDesc .= '<img src="http://cdn.barzahlen.de/images/barzahlen_partner_'.$count.'.png" alt="" style="vertical-align: middle; height: 25px;" />';
       }
 
       $query = "UPDATE ".$method->_tbl_lang."
