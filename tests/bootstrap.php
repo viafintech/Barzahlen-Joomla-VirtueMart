@@ -29,7 +29,7 @@
 
   function emptyLog() {
 
-    fclose(fopen("barzahlen.log", "w"));
+    fclose(fopen("tests/barzahlen.log", "w"));
   }
 
   /**

@@ -35,4 +35,3 @@ $callback = JURI::root () . 'administrator/index.php?option=com_virtuemart&view=
   <input type="text" name="refund_amount" value="" size="10"/>
   <input type="submit" value="<?php echo $viewData['button']; ?>"/>
 </form>
-

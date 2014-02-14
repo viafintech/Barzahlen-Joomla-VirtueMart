@@ -1,3 +1,8 @@
+==1.1.4 (15.05.2013)==
+* updated to Barzahlen API PHP SDK
+* added payment slip cancelation button
+* PSR2 coding standards
+
 ==1.1.3 (11.03.2013)==
 * changed image urls to make use of https
 * updated cURL certificate bundle
