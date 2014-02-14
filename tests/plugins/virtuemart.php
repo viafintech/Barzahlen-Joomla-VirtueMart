@@ -68,6 +68,9 @@ class db {
 class bt {
 
   public $email;
+  public $address_1;
+  public $zip;
+  public $city;
   public $order_number;
   public $order_total;
   public $order_status;
@@ -75,9 +78,20 @@ class bt {
   public $virtuemart_paymentmethod_id;
   public $virtuemart_country_id;
 
-
   public function setEmail($email) {
     $this->email = $email;
+  }
+
+  public function setAddress1($address_1) {
+    $this->address_1 = $address_1;
+  }
+
+  public function setZip($zip) {
+    $this->zip = $zip;
+  }
+
+  public function setCity($city) {
+    $this->city = $city;
   }
 
   public function setOrderStatus($order_status) {
@@ -164,6 +178,9 @@ class orders {
     $order = array('details' => array());
     $order['details']['BT'] = new bt;
     $order['details']['BT']->setEmail("foo@bar.com");
+    $order['details']['BT']->setAddress1("Musterstr. 1a");
+    $order['details']['BT']->setZip("12345");
+    $order['details']['BT']->setCity("Musterstadt");
     $order['details']['BT']->setOrderId(1);
     $order['details']['BT']->setOrderStatus('paid');
     $order['details']['BT']->setAmount("24.95");

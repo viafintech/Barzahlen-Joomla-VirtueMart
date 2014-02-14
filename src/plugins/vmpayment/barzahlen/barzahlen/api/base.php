@@ -72,5 +72,19 @@ abstract class Barzahlen_Base {
     $hashString = implode(self::SEPARATOR, $hashArray);
     return hash(self::HASHALGO, $hashString);
   }
+
+  /**
+   * Removes empty values from arrays.
+   *
+   * @param array $array array with (empty) values
+   */
+  final protected function _removeEmptyValues(array &$array) {
+
+    foreach($array as $key => $value) {
+      if($value == '') {
+        unset($array[$key]);
+      }
+    }
+  }
 }
 ?>

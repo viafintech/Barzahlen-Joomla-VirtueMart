@@ -143,10 +143,11 @@ class plgVmpaymentBarzahlen extends vmPSPlugin {
     $paymentCurrency = CurrencyDisplay::getInstance($method->payment_currency);
     $totalInPaymentCurrency = round($paymentCurrency->convertCurrencyTo($method->payment_currency, $order['details']['BT']->order_total, false), 2);
 
-    $request = new Barzahlen_Request_Payment($order['details']['BT']->email,
-                                             $order['details']['BT']->order_number,
-                                             (string)$totalInPaymentCurrency,
-                                             $currency_code_3);
+    $request = new Barzahlen_Request_Payment($order['details']['BT']->email, $order['details']['BT']->address_1,
+                                             $order['details']['BT']->zip, $order['details']['BT']->city,
+                                             $this->_loadCountry($order['details']['BT']->virtuemart_country_id), (string)$totalInPaymentCurrency,
+                                             $currency_code_3, $order['details']['BT']->order_number);
+
     $payment = $this->_connectBarzahlenApi($method->shop_id, $method->payment_key, $sandbox, $request);
 
     if($payment->isValid()) {
@@ -658,6 +659,18 @@ class plgVmpaymentBarzahlen extends vmPSPlugin {
     $db = JFactory::getDBO();
     $db->setQuery($query);
     $db->query();
+  }
+
+  protected function _loadCountry($id) {
+
+    $query = "SELECT country_2_code FROM #__virtuemart_countries
+              WHERE virtuemart_country_id = '".(int)$id."'";
+
+    $db = JFactory::getDBO();
+    $db->setQuery($query);
+    $result = $db->loadObject();
+
+    return $result->country_2_code;
   }
 
   /**

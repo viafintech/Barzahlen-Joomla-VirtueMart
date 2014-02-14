@@ -25,9 +25,14 @@ class Barzahlen_Request_Payment extends Barzahlen_Request_Base {
 
   protected $_type = 'create'; //!< request type
   protected $_customerEmail; //!< customers e-mail address
+  protected $_customerStreetNr; //!< customers street and street number
+  protected $_customerZipcode; //!< customers zipcode
+  protected $_customerCity; //!< customers city
+  protected $_customerCountry; //!< customers country
   protected $_orderId; //!< order id
   protected $_amount; //!< payment amount
   protected $_currency; //!< currency of payment (ISO 4217)
+  protected $_customVar = array('', '', ''); //!< custom variables
 
   protected $_xmlAttributes = array('transaction-id', 'payment-slip-link', 'expiration-notice',
                                     'infotext-1', 'infotext-2', 'result', 'hash'); //!< payment xml content
@@ -36,29 +41,49 @@ class Barzahlen_Request_Payment extends Barzahlen_Request_Base {
    * Construtor to set variable request settings.
    *
    * @param string $customerEmail customers e-mail address
-   * @param string $orderId order id
+   * @param string $customerStreetNr customers street and house number
+   * @param string $customerZipcode customers zip code
+   * @param string $customerCity customers city name
    * @param string $amount payment amount
    * @param string $currency currency of payment (ISO 4217)
-   * @return
+   * @param string $orderId order id
    */
-  public function __construct($customerEmail, $orderId, $amount, $currency = 'EUR') {
+  public function __construct($customerEmail, $customerStreetNr, $customerZipcode, $customerCity, $customerCountry, $amount, $currency = 'EUR', $orderId = '') {
 
     $this->_customerEmail = $customerEmail;
-    $this->_orderId = $orderId;
+    $this->_customerStreetNr = $customerStreetNr;
+    $this->_customerZipcode = $customerZipcode;
+    $this->_customerCity = $customerCity;
+    $this->_customerCountry = $customerCountry;
     $this->_amount = $amount;
     $this->_currency = $currency;
+    $this->_orderId = $orderId;
+  }
+
+  /**
+   * Lets the merchant sets custom variables.
+   *
+   * @param string $var0 First Custom Variable
+   * @param string $var1 Second Custom Variable
+   * @param string $var2 Third Custom Variable
+   */
+  public function setCustomVar($var0 = '', $var1 = '', $var2 = '') {
+
+    $this->_customVar[0] = $var0;
+    $this->_customVar[1] = $var1;
+    $this->_customVar[2] = $var2;
   }
 
   /**
    * Builds array for request.
    *
    * @param string $shopId merchants shop id
+   * @param string $paymentKey merchants payment key
    * @param string $language langauge code (ISO 639-1)
    * @param array $customVar custom variables from merchant
-   * @param string $paymentKey merchants payment key
    * @return array for payment request
    */
-  public function buildRequestArray($shopId, $language, array $customVar, $paymentKey) {
+  public function buildRequestArray($shopId, $paymentKey, $language) {
 
     $requestArray = array();
     $requestArray['shop_id'] = $shopId;
@@ -67,11 +92,16 @@ class Barzahlen_Request_Payment extends Barzahlen_Request_Base {
     $requestArray['currency'] = $this->_currency;
     $requestArray['language'] = $language;
     $requestArray['order_id'] = $this->_orderId;
-    $requestArray['custom_var_0'] = $customVar[0];
-    $requestArray['custom_var_1'] = $customVar[1];
-    $requestArray['custom_var_2'] = $customVar[2];
+    $requestArray['customer_street_nr'] = $this->_customerStreetNr;
+    $requestArray['customer_zipcode'] = $this->_customerZipcode;
+    $requestArray['customer_city'] = $this->_customerCity;
+    $requestArray['customer_country'] = $this->_customerCountry;
+    $requestArray['custom_var_0'] = $this->_customVar[0];
+    $requestArray['custom_var_1'] = $this->_customVar[1];
+    $requestArray['custom_var_2'] = $this->_customVar[2];
     $requestArray['hash'] = $this->_createHash($requestArray, $paymentKey);
 
+    $this->_removeEmptyValues($requestArray);
     return $requestArray;
   }
 

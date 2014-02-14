@@ -63,7 +63,7 @@
     <param type="spacer" default=" " level="level1" />
 
     <param name="min_amount" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_MINAMOUNT" description="VMPAYMENT_BARZAHLEN_MINAMOUNT_DESC" />
-    <param name="max_amount" type="text" size="50" default="1000" label="VMPAYMENT_BARZAHLEN_MAXAMOUNT" description="VMPAYMENT_BARZAHLEN_MAXAMOUNT_DESC" />
+    <param name="max_amount" type="text" size="50" default="999.99" label="VMPAYMENT_BARZAHLEN_MAXAMOUNT" description="VMPAYMENT_BARZAHLEN_MAXAMOUNT_DESC" />
     <param name="payment_currency" type="vmacceptedcurrency" default="EUR" label="VMPAYMENT_BARZAHLEN_CURRENCY" description="VMPAYMENT_BARZAHLEN_CURRENCY_DESC" />
     <param name="countries" type="vmcountries" scope="com_virtuemart" default="DE" label="VMPAYMENT_BARZAHLEN_COUNTRIES" description="VMPAYMENT_BARZAHLEN_COUNTRIES_DESC"/>
   </params>

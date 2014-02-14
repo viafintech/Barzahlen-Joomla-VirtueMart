@@ -23,7 +23,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-$url = $viewData['group'] == 'admin' ? 'https://www.barzahlen.de/merchant-area/' : 'http://www.barzahlen.de/';
+$url = $viewData['group'] == 'admin' ? 'https://partner.barzahlen.de' : 'http://www.barzahlen.de/';
 ?>
 
 <a href="<? echo $url; ?>" target="_blank" style="color: #63A924; font-weight: bold;">
