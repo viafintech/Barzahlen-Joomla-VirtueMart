@@ -27,5 +27,5 @@ $url = $viewData['group'] == 'admin' ? 'https://partner.barzahlen.de' : 'http://
 ?>
 
 <a href="<? echo $url; ?>" target="_blank" style="color: #63A924; font-weight: bold;">
-  <img src="http://cdn.barzahlen.de/images/barzahlen_logo.png" width="<?php echo $viewData['width']; ?>" alt="" style="<?php echo $viewData['style']; ?>"/>
+  <img src="https://cdn.barzahlen.de/images/barzahlen_logo.png" width="<?php echo $viewData['width']; ?>" alt="" style="<?php echo $viewData['style']; ?>"/>
 </a>
