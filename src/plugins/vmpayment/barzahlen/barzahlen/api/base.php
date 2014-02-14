@@ -86,5 +86,20 @@ abstract class Barzahlen_Base {
       }
     }
   }
+
+  /**
+   * Converts ISO-8859-1 strings to UTF-8 if necessary.
+   *
+   * @param string $string text which is to check
+   * @return string with utf-8 encoding
+   */
+  public function isoConvert($string) {
+
+    if(!preg_match('/\S/u', $string)) {
+      $string = utf8_encode($string);
+    }
+
+    return $string;
+  }
 }
 ?>
