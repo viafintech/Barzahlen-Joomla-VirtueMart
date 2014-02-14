@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<install version="1.5" type="plugin" group="vmpayment" method="upgrade">
+   <name>VM - Payment, Barzahlen</name>
+  <creationDate>July 2012</creationDate>
+  <author>Alexander Diebler</author>
+  <authorUrl>http://www.barzahlen.de</authorUrl>
+  <copyright>Copyright (C) 2011-2012 ZerebroInternet GmbH, Berlin. All rights reserved.</copyright>
+  <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+  <version>2.0.0</version>
+  <element>barzahlen</element>
+  <description>Barzahlen Payment Plugin</description>
+  <languages>
+    <language tag="de-DE">de-DE.plg_vmpayment_barzahlen.ini</language>
+    <language tag="en-GB">en-GB.plg_vmpayment_barzahlen.ini</language>
+  </languages>
+
+  <files>
+    <filename plugin="barzahlen">barzahlen.php</filename>
+    <filename>index.html</filename>
+    <filename>LICENSE.txt</filename>
+    <folder>barzahlen</folder>
+  </files>
+
+  <media folder="images" destination="../images/stories/virtuemart/payment">
+    <filename>barzahlen.png</filename>
+  </media>
+
+  <params addpath="/administrator/components/com_virtuemart/elements" />
+  <param type="vmjpluginwarning" />
+
+  <params>
+    <param type="spacer" default="VMPAYMENT_BARZAHLEN" level="level1" />
+    <param type="spacer" default=" " level="level1" />
+
+    <param name="payment_logos" type="vmfiles" label="VMPAYMENT_PAYPAL_LOGOS"
+           description="VMPAYMENT_BARZAHLEN_LOGOS_DESC"
+           directory="/images/stories/virtuemart/payment"
+           default="barzahlen.png" hide_default="1" hide_none="1"
+           stripext="0"  exclude="^_" />
+
+    <param name="sandbox" type="radio" default="1" label="VMPAYMENT_BARZAHLEN_SANDBOX" description="VMPAYMENT_BARZAHLEN_SANDBOX_DESC">
+      <option value="0">COM_VIRTUEMART_NO</option>
+      <option value="1">COM_VIRTUEMART_YES</option>
+    </param>
+    <param name="debug" type="radio" default="0" label="VMPAYMENT_BARZAHLEN_DEBUG" description="VMPAYMENT_BARZAHLEN_DEBUG_DESC" >
+      <option value="0">COM_VIRTUEMART_NO</option>
+      <option value="1">COM_VIRTUEMART_YES</option>
+    </param>
+
+    <param type="spacer" default=" " level="level1" />
+
+    <param name="shop_id" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_SHOPID" description="VMPAYMENT_BARZAHLEN_SHOPID_DESC"/>
+    <param name="payment_key" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_PAYMENTKEY" description="VMPAYMENT_BARZAHLEN_PAYMENTKEY_DESC"/>
+    <param name="notification_key" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_NOTIFICATIONKEY" description="VMPAYMENT_BARZAHLEN_NOTIFICATIONKEY_DESC"/>
+
+    <param type="spacer" default=" " level="level1" />
+
+    <param name="payment_pending_status" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_BARZAHLEN_PENDING_STATUS" description="VMPAYMENT_BARZAHLEN_PENDING_STATUS_DESC" />
+    <param name="payment_paid_status" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_BARZAHLEN_PAID_STATUS" description="VMPAYMENT_BARZAHLEN_PAID_STATUS_DESC" />
+    <param name="payment_expired_status" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_BARZAHLEN_EXPIRED_STATUS" description="VMPAYMENT_BARZAHLEN_EXPIRED_STATUS_DESC" />
+    <param name="payment_denied_status" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_BARZAHLEN_DENIED_STATUS" description="VMPAYMENT_BARZAHLEN_DENIED_STATUS_DESC" />
+
+    <param type="spacer" default=" " level="level1" />
+
+    <param name="min_amount" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_MINAMOUNT" description="VMPAYMENT_BARZAHLEN_MINAMOUNT_DESC" />
+    <param name="max_amount" type="text" size="50" default="1000" label="VMPAYMENT_BARZAHLEN_MAXAMOUNT" description="VMPAYMENT_BARZAHLEN_MAXAMOUNT_DESC" />
+    <param name="payment_currency" type="vmacceptedcurrency" default="EUR" label="VMPAYMENT_BARZAHLEN_CURRENCY" description="VMPAYMENT_BARZAHLEN_CURRENCY_DESC" />
+    <param name="countries" type="vmcountries" scope="com_virtuemart" default="DE" label="VMPAYMENT_BARZAHLEN_COUNTRIES" description="VMPAYMENT_BARZAHLEN_COUNTRIES_DESC"/>
+  </params>
+</install>
