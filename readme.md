@@ -4,9 +4,13 @@
 https://integration.barzahlen.de/de/shopsysteme/virtuemart/nutzerhandbuch
 
 ## Current Version
-1.1.4
+1.1.5
 
 ## Changelog
+
+### 1.1.5 (13.05.2014)
+* removed automatic payment description setting
+* added new logo with partner logos
 
 ### 1.1.4 (15.05.2013)
 * updated to Barzahlen API PHP SDK

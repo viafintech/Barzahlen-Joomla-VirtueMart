@@ -766,38 +766,6 @@ class plgVmpaymentBarzahlen extends vmPSPlugin
     }
 
     /**
-     * Sets Barzahlen Description for the payment method selection.
-     */
-    protected function _setBarzahlenDescription()
-    {
-        $db = JFactory::getDBO();
-
-        $query = "SELECT virtuemart_paymentmethod_id FROM #__virtuemart_paymentmethods
-              WHERE payment_element = 'barzahlen'";
-        $db->setQuery($query);
-        $rows = $db->loadObjectList();
-
-        foreach ($rows as $row) {
-            $method = $this->getVmPluginMethod($row->virtuemart_paymentmethod_id);
-            $paymentDesc = '<br/>' . JText::_('VMPAYMENT_BARZAHLEN_SHOP_DESC');
-            $paymentDesc .= $method->sandbox == '1' ? JText::_('VMPAYMENT_BARZAHLEN_SHOP_SANDBOX') : '';
-            $paymentDesc .= JText::_('VMPAYMENT_BARZAHLEN_SHOP_PARTNER');
-
-            for ($i = 1; $i <= 10; $i++) {
-                $count = str_pad($i, 2, "0", STR_PAD_LEFT);
-                $paymentDesc .= '<img src="https://cdn.barzahlen.de/images/barzahlen_partner_' . $count . '.png" alt="" style="vertical-align: middle; height: 25px;" />';
-            }
-
-            $query = "UPDATE " . $method->_tbl_lang . "
-                SET payment_desc = '" . $paymentDesc . "'
-                WHERE virtuemart_paymentmethod_id = '" . $row->virtuemart_paymentmethod_id . "'";
-        }
-
-        $db->setQuery($query);
-        $db->query();
-    }
-
-    /**
      * plgVmDisplayListFEPayment
      * This event is fired to display the pluginmethods in the cart (edit shipment/payment) for example
      * Is used to set description text and partner logos for Barzahlen
@@ -813,7 +781,6 @@ class plgVmpaymentBarzahlen extends vmPSPlugin
      */
     public function plgVmDisplayListFEPayment(VirtueMartCart $cart, $selected = 0, &$htmlIn)
     {
-        $this->_setBarzahlenDescription();
         return $this->displayListFE($cart, $selected, $htmlIn);
     }
 

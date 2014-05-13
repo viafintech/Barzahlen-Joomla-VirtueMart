@@ -32,7 +32,7 @@
     <param type="spacer" default="VMPAYMENT_BARZAHLEN" level="level1" />
     <param type="spacer" default=" " level="level1" />
 
-    <param name="payment_logos" type="vmfiles" label="VMPAYMENT_PAYPAL_LOGOS"
+    <param name="payment_logos" type="vmfiles" label="VMPAYMENT_BARZAHLEN_LOGOS"
            description="VMPAYMENT_BARZAHLEN_LOGOS_DESC"
            directory="/images/stories/virtuemart/payment"
            default="barzahlen.png" hide_default="1" hide_none="1"
