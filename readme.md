@@ -4,9 +4,12 @@
 https://integration.barzahlen.de/de/shopsysteme/virtuemart/nutzerhandbuch
 
 ## Current Version
-1.1.5
+1.1.6
 
 ## Changelog
+
+### 1.1.6 (05.06.2014)
+* added cost per transaction and percent costs
 
 ### 1.1.5 (13.05.2014)
 * removed automatic payment description setting

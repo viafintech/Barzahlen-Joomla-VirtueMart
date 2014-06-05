@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <install version="1.5" type="plugin" group="vmpayment" method="upgrade">
    <name>VM - Payment, Barzahlen</name>
-  <creationDate>July 2012</creationDate>
-  <author>Alexander Diebler</author>
-  <authorUrl>http://www.barzahlen.de</authorUrl>
-  <copyright>Copyright (C) 2011-2013 ZerebroInternet GmbH, Berlin. All rights reserved.</copyright>
+  <creationDate>June 2014</creationDate>
+  <author>Cash Payment Solutions GmbH</author>
+  <authorUrl>https://www.barzahlen.de</authorUrl>
+  <copyright>Copyright (C) 2011-2014 Cash Payment Solutions GmbH, Berlin. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
   <version>2.0.0</version>
   <element>barzahlen</element>
@@ -17,7 +17,7 @@
   <files>
     <filename plugin="barzahlen">barzahlen.php</filename>
     <filename>index.html</filename>
-    <filename>license.txt</filename>
+    <filename>readme.md</filename>
     <folder>barzahlen</folder>
   </files>
 
@@ -64,6 +64,8 @@
 
     <param name="min_amount" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_MINAMOUNT" description="VMPAYMENT_BARZAHLEN_MINAMOUNT_DESC" />
     <param name="max_amount" type="text" size="50" default="999.99" label="VMPAYMENT_BARZAHLEN_MAXAMOUNT" description="VMPAYMENT_BARZAHLEN_MAXAMOUNT_DESC" />
+    <param name="cost_per_transaction" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_COST_PER_TRANSACTION" description="VMPAYMENT_BARZAHLEN_COST_PER_TRANSACTION_DESC" />
+    <param name="cost_percent_total" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_COST_PERCENT_TOTAL" description="VMPAYMENT_BARZAHLEN_COST_PERCENT_TOTAL_DESC" />
     <param name="payment_currency" type="vmacceptedcurrency" default="EUR" label="VMPAYMENT_BARZAHLEN_CURRENCY" description="VMPAYMENT_BARZAHLEN_CURRENCY_DESC" />
     <param name="countries" type="vmcountries" scope="com_virtuemart" default="DE" label="VMPAYMENT_BARZAHLEN_COUNTRIES" description="VMPAYMENT_BARZAHLEN_COUNTRIES_DESC"/>
   </params>

@@ -75,6 +75,8 @@ class plgVmpaymentBarzahlen extends vmPSPlugin
             'payment_denied_status' => array('', 'char'),
             'min_amount' => array(0, 'int'),
             'max_amount' => array(0, 'int'),
+            'cost_per_transaction' => array('', 'char'),
+            'cost_percent_total' => array('', 'char'),
             'payment_currency' => array('', 'char'),
             'countries' => array('', 'char')
         );
@@ -159,6 +161,8 @@ class plgVmpaymentBarzahlen extends vmPSPlugin
             $dbValues['transaction_id'] = $payment->getTransactionId();
             $dbValues['order_number'] = $order['details']['BT']->order_number;
             $dbValues['amount'] = $totalInPaymentCurrency;
+            $dbValues['cost_per_transaction'] = $method->cost_per_transaction;
+            $dbValues['cost_percent_total'] = $method->cost_percent_total;
             $dbValues['currency'] = $currency_code_3;
             $dbValues['state'] = self::STATE_PENDING;
             $this->storePSPluginInternalData($dbValues);
