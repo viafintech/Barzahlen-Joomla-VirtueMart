@@ -43,6 +43,8 @@ abstract class vmPSPlugin {
 
     $method = new method;
     $method->loadConfig($payment_method_id);
+    $method->cost_per_transaction = 0;
+    $method->cost_percent_total = 0;
     return isset($method->debug) ? $method : null;
   }
 
