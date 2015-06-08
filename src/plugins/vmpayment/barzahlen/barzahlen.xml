@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<install version="1.5" type="plugin" group="vmpayment" method="upgrade">
+<extension version="1.6" type="plugin" group="vmpayment" client="site" method="upgrade">
    <name>VM - Payment, Barzahlen</name>
   <creationDate>June 2014</creationDate>
   <author>Cash Payment Solutions GmbH</author>
@@ -17,7 +17,6 @@
   <files>
     <filename plugin="barzahlen">barzahlen.php</filename>
     <filename>index.html</filename>
-    <filename>readme.md</filename>
     <folder>barzahlen</folder>
   </files>
 
@@ -26,47 +25,50 @@
   </media>
 
   <params addpath="/administrator/components/com_virtuemart/elements" />
-  <param type="vmjpluginwarning" />
+  <field type="vmjpluginwarning" />
 
-  <params>
-    <param type="spacer" default="VMPAYMENT_BARZAHLEN" level="level1" />
-    <param type="spacer" default=" " level="level1" />
+  <config>
+    <fields name="params"><fieldset name="basic" label="basic">
+        <field type="spacer" default="VMPAYMENT_BARZAHLEN" level="level1" />
+        <field type="spacer" default=" " level="level1" />
 
-    <param name="payment_logos" type="vmfiles" label="VMPAYMENT_BARZAHLEN_LOGOS"
-           description="VMPAYMENT_BARZAHLEN_LOGOS_DESC"
-           directory="/images/stories/virtuemart/payment"
-           default="barzahlen.png" hide_default="1" hide_none="1"
-           stripext="0"  exclude="^_" />
+        <field name="payment_logos" type="vmfiles" label="VMPAYMENT_BARZAHLEN_LOGOS"
+               description="VMPAYMENT_BARZAHLEN_LOGOS_DESC"
+               directory="/images/stories/virtuemart/payment"
+               default="barzahlen.png" hide_default="1" hide_none="1"
+               stripext="0"  exclude="^_" />
 
-    <param name="sandbox" type="radio" default="1" label="VMPAYMENT_BARZAHLEN_SANDBOX" description="VMPAYMENT_BARZAHLEN_SANDBOX_DESC">
-      <option value="0">COM_VIRTUEMART_NO</option>
-      <option value="1">COM_VIRTUEMART_YES</option>
-    </param>
-    <param name="debug" type="radio" default="0" label="VMPAYMENT_BARZAHLEN_DEBUG" description="VMPAYMENT_BARZAHLEN_DEBUG_DESC" >
-      <option value="0">COM_VIRTUEMART_NO</option>
-      <option value="1">COM_VIRTUEMART_YES</option>
-    </param>
+        <field name="sandbox" type="radio" default="1" label="VMPAYMENT_BARZAHLEN_SANDBOX" description="VMPAYMENT_BARZAHLEN_SANDBOX_DESC">
+          <option value="0">COM_VIRTUEMART_NO</option>
+          <option value="1">COM_VIRTUEMART_YES</option>
+        </field>
+        <field name="debug" type="radio" default="0" label="VMPAYMENT_BARZAHLEN_DEBUG" description="VMPAYMENT_BARZAHLEN_DEBUG_DESC" >
+          <option value="0">COM_VIRTUEMART_NO</option>
+          <option value="1">COM_VIRTUEMART_YES</option>
+        </field>
 
-    <param type="spacer" default=" " level="level1" />
+        <field type="spacer" default=" " level="level1" />
 
-    <param name="shop_id" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_SHOPID" description="VMPAYMENT_BARZAHLEN_SHOPID_DESC"/>
-    <param name="payment_key" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_PAYMENTKEY" description="VMPAYMENT_BARZAHLEN_PAYMENTKEY_DESC"/>
-    <param name="notification_key" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_NOTIFICATIONKEY" description="VMPAYMENT_BARZAHLEN_NOTIFICATIONKEY_DESC"/>
+        <field name="shop_id" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_SHOPID" description="VMPAYMENT_BARZAHLEN_SHOPID_DESC"/>
+        <field name="payment_key" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_PAYMENTKEY" description="VMPAYMENT_BARZAHLEN_PAYMENTKEY_DESC"/>
+        <field name="notification_key" type="text" size="50" default="" label="VMPAYMENT_BARZAHLEN_NOTIFICATIONKEY" description="VMPAYMENT_BARZAHLEN_NOTIFICATIONKEY_DESC"/>
 
-    <param type="spacer" default=" " level="level1" />
+        <field type="spacer" default=" " level="level1" />
 
-    <param name="payment_pending_status" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_BARZAHLEN_PENDING_STATUS" description="VMPAYMENT_BARZAHLEN_PENDING_STATUS_DESC" />
-    <param name="payment_paid_status" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_BARZAHLEN_PAID_STATUS" description="VMPAYMENT_BARZAHLEN_PAID_STATUS_DESC" />
-    <param name="payment_expired_status" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_BARZAHLEN_EXPIRED_STATUS" description="VMPAYMENT_BARZAHLEN_EXPIRED_STATUS_DESC" />
-    <param name="payment_denied_status" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_BARZAHLEN_DENIED_STATUS" description="VMPAYMENT_BARZAHLEN_DENIED_STATUS_DESC" />
+        <field name="payment_pending_status" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_BARZAHLEN_PENDING_STATUS" description="VMPAYMENT_BARZAHLEN_PENDING_STATUS_DESC" />
+        <field name="payment_paid_status" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_BARZAHLEN_PAID_STATUS" description="VMPAYMENT_BARZAHLEN_PAID_STATUS_DESC" />
+        <field name="payment_expired_status" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_BARZAHLEN_EXPIRED_STATUS" description="VMPAYMENT_BARZAHLEN_EXPIRED_STATUS_DESC" />
+        <field name="payment_denied_status" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_BARZAHLEN_DENIED_STATUS" description="VMPAYMENT_BARZAHLEN_DENIED_STATUS_DESC" />
 
-    <param type="spacer" default=" " level="level1" />
+        <field type="spacer" default=" " level="level1" />
 
-    <param name="min_amount" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_MINAMOUNT" description="VMPAYMENT_BARZAHLEN_MINAMOUNT_DESC" />
-    <param name="max_amount" type="text" size="50" default="999.99" label="VMPAYMENT_BARZAHLEN_MAXAMOUNT" description="VMPAYMENT_BARZAHLEN_MAXAMOUNT_DESC" />
-    <param name="cost_per_transaction" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_COST_PER_TRANSACTION" description="VMPAYMENT_BARZAHLEN_COST_PER_TRANSACTION_DESC" />
-    <param name="cost_percent_total" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_COST_PERCENT_TOTAL" description="VMPAYMENT_BARZAHLEN_COST_PERCENT_TOTAL_DESC" />
-    <param name="payment_currency" type="vmacceptedcurrency" default="EUR" label="VMPAYMENT_BARZAHLEN_CURRENCY" description="VMPAYMENT_BARZAHLEN_CURRENCY_DESC" />
-    <param name="countries" type="vmcountries" scope="com_virtuemart" default="DE" label="VMPAYMENT_BARZAHLEN_COUNTRIES" description="VMPAYMENT_BARZAHLEN_COUNTRIES_DESC"/>
-  </params>
-</install>
+        <field name="min_amount" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_MINAMOUNT" description="VMPAYMENT_BARZAHLEN_MINAMOUNT_DESC" />
+        <field name="max_amount" type="text" size="50" default="999.99" label="VMPAYMENT_BARZAHLEN_MAXAMOUNT" description="VMPAYMENT_BARZAHLEN_MAXAMOUNT_DESC" />
+        <field name="cost_per_transaction" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_COST_PER_TRANSACTION" description="VMPAYMENT_BARZAHLEN_COST_PER_TRANSACTION_DESC" />
+        <field name="cost_percent_total" type="text" size="50" default="0" label="VMPAYMENT_BARZAHLEN_COST_PERCENT_TOTAL" description="VMPAYMENT_BARZAHLEN_COST_PERCENT_TOTAL_DESC" />
+        <field name="payment_currency" type="vmacceptedcurrency" default="EUR" label="VMPAYMENT_BARZAHLEN_CURRENCY" description="VMPAYMENT_BARZAHLEN_CURRENCY_DESC" />
+        <field name="countries" type="vmcountries" scope="com_virtuemart" default="DE" label="VMPAYMENT_BARZAHLEN_COUNTRIES" description="VMPAYMENT_BARZAHLEN_COUNTRIES_DESC"/>
+    </fieldset>
+    </fields>
+  </config>
+</extension>
