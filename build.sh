@@ -1,5 +1,5 @@
 #!/bin/bash
-DST="barzahlen_virtuemart2_plugin_v1.1.7"
+DST="barzahlen_virtuemart3_plugin_v1.1.7"
 if [ -d $DST ]; then
 rm -R $DST
 fi

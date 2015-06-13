@@ -1,4 +1,4 @@
-# Barzahlen Payment Module (VirtueMart2)
+# Barzahlen Payment Module (VirtueMart3)
 
 ## User Manual
 DE - https://integration.barzahlen.de/de/shopsysteme/virtuemart/nutzerhandbuch  
