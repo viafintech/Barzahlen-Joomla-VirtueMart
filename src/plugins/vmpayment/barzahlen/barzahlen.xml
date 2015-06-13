@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <install version="1.5" type="plugin" group="vmpayment" method="upgrade">
    <name>VM - Payment, Barzahlen</name>
-  <creationDate>June 2014</creationDate>
+  <creationDate>June 2015</creationDate>
   <author>Cash Payment Solutions GmbH</author>
   <authorUrl>https://www.barzahlen.de</authorUrl>
-  <copyright>Copyright (C) 2011-2014 Cash Payment Solutions GmbH, Berlin. All rights reserved.</copyright>
+  <copyright>Copyright (C) 2011-2015 Cash Payment Solutions GmbH, Berlin. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
   <version>2.0.0</version>
   <element>barzahlen</element>

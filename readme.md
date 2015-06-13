@@ -1,12 +1,16 @@
 # Barzahlen Payment Module (VirtueMart2)
 
 ## User Manual
-https://integration.barzahlen.de/de/shopsysteme/virtuemart/nutzerhandbuch
+DE - https://integration.barzahlen.de/de/shopsysteme/virtuemart/nutzerhandbuch  
+EN - https://integration.barzahlen.de/en/shopsystems/virtuemart/user-manual
 
 ## Current Version
-1.1.6
+1.1.7
 
 ## Changelog
+
+### 1.1.7 (14.06.2015)
+* updated to Barzahlen PHP SDK v1.1.8
 
 ### 1.1.6 (05.06.2014)
 * added cost per transaction and percent costs
@@ -39,10 +43,10 @@ https://integration.barzahlen.de/de/shopsysteme/virtuemart/nutzerhandbuch
 * initial release
 
 ## Support
-The Barzahlen Team will happily assist you with any problems or questions. Send us an email to support@barzahlen.de or use the contact form at http://www.barzahlen.de/partner/integration.
+The Barzahlen Team will happily assist you with any problems or questions. Send us an email to support@barzahlen.de or use the contact form at https://integration.barzahlen.de/en/support.
 
 ## Copyright
-(c) 2014, Cash Payment Solutions GmbH  
+(c) 2015, Cash Payment Solutions GmbH  
 https://www.barzahlen.de
 
 ## NOTICE OF LICENSE

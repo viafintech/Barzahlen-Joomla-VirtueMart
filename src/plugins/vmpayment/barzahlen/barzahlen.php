@@ -1,22 +1,8 @@
 <?php
 /**
- * Barzahlen Payment Module (ViruteMart2)
+ * Barzahlen Payment Module (ViruteMart)
  *
- * NOTICE OF LICENSE
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; version 3 of the License
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see http://www.gnu.org/licenses/
- *
- * @copyright   Copyright (c) 2012 Zerebro Internet GmbH (http://www.barzahlen.de)
+ * @copyright   Copyright (c) 2015 Cash Payment Solutions GmbH (https://www.barzahlen.de)
  * @author      Alexander Diebler
  * @license     http://opensource.org/licenses/GPL-3.0  GNU General Public License, version 3 (GPL-3.0)
  */
@@ -730,14 +716,15 @@ class plgVmpaymentBarzahlen extends vmPSPlugin
      * @param integer $shopId shop id
      * @param string $paymentKey payment key
      * @param boolean $sandbox sandbox setting
-     * @param Barzahlen_Request $request Barzahlen request object
-     * @return Barzahlen_Request updated Barzahlen request object
+     * @param Barzahlen_Request_Base $request Barzahlen request object
+     * @return Barzahlen_Request_Base updated Barzahlen request object
      */
     protected function _connectBarzahlenApi($shopId, $paymentKey, $sandbox, $request)
     {
         $api = new Barzahlen_Api($shopId, $paymentKey, $sandbox);
         $api->setDebug($this->_debug, $this->_logFile);
         $api->setLanguage(substr(JLanguageHelper::detectLanguage(), 0, 2));
+        $api->setUserAgent('VirtueMart / Plugin v1.1.7');
 
         try {
             $api->handleRequest($request);
